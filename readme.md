@@ -3,6 +3,7 @@
 * 2024-03-07 initial creation of starter code
 ## References
 * [SqlAlchemy: Table Configuration with Declarative](https://docs.sqlalchemy.org/en/20/orm/declarative_tables.html)
+* [SqlAlchemy: Integration with Dataclassesa and attrs](https://docs.sqlalchemy.org/en/20/orm/dataclasses.html)
 ## Tools
 * Python 3.12.2
 * SqlAlchemy 2.0.28

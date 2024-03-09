@@ -12,7 +12,7 @@ def get_SqlAlchemy_version() -> str:
 
 
 def make_example_user():
-    u1 = User(name="fpmorrison", fullname="Fred Morrison")
+    u1 = User(name="fpmorrison", fullname="Fred Morrison", nickname="Freddie")
     print(f'{u1.__repr__()}')
 
 
