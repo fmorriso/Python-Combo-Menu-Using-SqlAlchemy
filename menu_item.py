@@ -3,7 +3,7 @@ import uuid
 
 from base_table import Base
 
-from sqlalchemy import NVARCHAR, Uuid
+from sqlalchemy import NVARCHAR, Uuid, DECIMAL
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
 
@@ -15,5 +15,5 @@ class MenuItem(Base):
 
     category: Mapped[str] = mapped_column(NVARCHAR(20), nullable=False)
     name: Mapped[str] = mapped_column(NVARCHAR(50), nullable=False)
-    price: Mapped[float]
+    price: Mapped[float] = mapped_column(DECIMAL(8,2), nullable=False)
     quantity: Mapped[Optional[int]] = 1

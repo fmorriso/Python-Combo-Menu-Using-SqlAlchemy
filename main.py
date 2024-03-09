@@ -1,8 +1,8 @@
 import sys
+
 import sqlalchemy as sa
 
 from menu_item import MenuItem
-from user import User
 
 
 def get_python_version() -> str:
@@ -11,11 +11,6 @@ def get_python_version() -> str:
 
 def get_SqlAlchemy_version() -> str:
     return sa.__version__
-
-
-def make_example_user():
-    u1 = User(name="fpmorrison", fullname="Fred Morrison", nickname="Freddie")
-    print(f'{u1.__repr__()}')
 
 
 def make_example_menu_item():
