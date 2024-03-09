@@ -10,4 +10,3 @@
 * PyCharm 2023.3.4
 ## Goals
 * Replace built-in python ```@DataClass``` with *SqlAlchemy* declarative ORM classes with minimal disruption.
-* dummy
