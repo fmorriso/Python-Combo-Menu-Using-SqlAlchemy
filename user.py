@@ -1,19 +1,22 @@
 from typing import Optional
+from dataclasses import dataclass
 
-from sqlalchemy import Integer, String
+from sqlalchemy import Integer, String, NVARCHAR, Uuid
 from sqlalchemy.orm import Mapped
 from sqlalchemy.orm import mapped_column
+import uuid
 
 from base_table import Base
 
 
+@dataclass
 class User(Base):
     __tablename__ = "user"
 
-    id = mapped_column(Integer, primary_key=True)
-    name = mapped_column(String(50), nullable=False)
-    fullname = mapped_column(String)
-    nickname = mapped_column(String(30))
+    id: Mapped[uuid] = mapped_column(Uuid, primary_key=True)
+    name: Mapped[str] = mapped_column(NVARCHAR(50), nullable=False)
+    fullname: Mapped[str] = mapped_column(NVARCHAR(50), nullable=False)
+    nickname: Mapped[Optional[str]] = mapped_column(NVARCHAR(30), nullable=True)
 
     # primary_key=True, therefore will be NOT NULL
     # id: Mapped[int] = mapped_column(primary_key=True)
