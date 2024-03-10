@@ -9,7 +9,7 @@ from sqlalchemy.orm import mapped_column
 
 
 class MenuItem(Base):
-    __tablename__ = "menu_item"
+    __tablename__ = "MenuItem"
 
     id: Mapped[Optional[uuid]] = mapped_column(Uuid, primary_key=True, init=False)
 
