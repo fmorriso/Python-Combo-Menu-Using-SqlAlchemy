@@ -48,3 +48,4 @@ if __name__ == '__main__':
     print(f'Welcome to {restaurant.name} where the food is always delicious.')
 
     current_order: SingleOrder = get_order()
+    restaurant.add_order(current_order)
