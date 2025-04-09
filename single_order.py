@@ -1,10 +1,10 @@
 from dataclasses import dataclass
+from datetime import datetime
 from typing import ClassVar, Optional
 
-from menu_item import MenuItem
 from menu import Menu
+from menu_item import MenuItem
 from prompt_utility import PromptUtility
-from datetime import datetime
 
 
 # NOTE: we make almost every attribute optional so we can perform the
@@ -34,6 +34,7 @@ class SingleOrder:
 
     combo_discount_applied: Optional[bool] = False
 
+
     @property
     def total_cost(self):
         total: float = self.sandwich_cost + self.beverage_cost + self.fries_cost + self.ketchup_packets_cost
@@ -41,22 +42,25 @@ class SingleOrder:
             total += Menu.COMBO_DISCOUNT_AMOUNT  # this is declared as a negative amount so we can display it easier
         return total
 
+
     def __init__(self):
         """augment the built-in DataClass constructor with some special stuff"""
         self.order_number = SingleOrder.get_next_order_number()
         self.order_date_time = datetime.now()
+
 
     @staticmethod
     def get_next_order_number() -> int:
         SingleOrder.next_order_number += 1
         return SingleOrder.next_order_number
 
+
     def get_sandwich(self) -> None:
         if not PromptUtility.get_yes_no_answer("Would you like a sandwich?>"):
             return
 
         # filter the menu for just sandwich choices
-        available_choices: list[MenuItem] = Menu.get_menu_choices_for_category(category='Sandwich')
+        available_choices: list[MenuItem] = Menu.get_menu_choices_for_category(category = 'Sandwich')
 
         # create prompt with choices and prices
         prompt = self.get_prompt_for_category("Which sandwich would you like to order: (", available_choices)
@@ -81,6 +85,7 @@ class SingleOrder:
 
         self.sandwich_type = selection.name
         self.sandwich_cost = selection.price
+
 
     def get_beverage(self) -> None:
         if not PromptUtility.get_yes_no_answer("Would you like a beverage?>"):
@@ -112,6 +117,7 @@ class SingleOrder:
 
         self.beverage_size = selection.name
         self.beverage_cost = selection.price
+
 
     def get_fries(self) -> None:
         if not PromptUtility.get_yes_no_answer("Would you like fries?>"):
@@ -153,6 +159,7 @@ class SingleOrder:
         self.fries_size = selection.name
         self.fries_cost = selection.price
 
+
     def get_ketchup_packets(self):
         if not PromptUtility.get_yes_no_answer("Would you like any ketchup packets?>"):
             return
@@ -164,12 +171,14 @@ class SingleOrder:
         self.ketchup_packets_quantity = n
         self.ketchup_packets_cost = n * per_each_cost
 
+
     def check_for_discount(self):
         # don't give the discount more than once
         if self.combo_discount_applied:
             return
         if self.sandwich_cost > 0 and self.beverage_cost > 0 and self.fries_cost > 0:
             self.combo_discount_applied = True
+
 
     def get_prompt_for_category(self, leadin: str, available_choices: list[MenuItem]) -> str:
         prompt = leadin
@@ -178,6 +187,7 @@ class SingleOrder:
         prompt = prompt.removesuffix(', ')
         prompt += ") ?>"
         return prompt
+
 
     def display(self):
         if self.total_cost == 0:
