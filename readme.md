@@ -7,10 +7,11 @@ Combo Menu ordering using SqlAlchemy instead of @dataclass
 
 ## Change History
 
-| Date       | Description                |
-|:-----------|:---------------------------|
-| 2024-03-07 | Initial creation           |
-| 2025-04-08 | move from GitLab to GitHub |
+| Date       | Description                         |
+|:-----------|:------------------------------------|
+| 2024-03-07 | Initial creation                    |
+| 2025-04-08 | move from GitLab to GitHub          |
+| 2025-04-14 | verify code runs with python 3.13.3 |
 
 ## References
 
@@ -21,7 +22,7 @@ Combo Menu ordering using SqlAlchemy instead of @dataclass
 
 | Tool       |  Version |
 |:-----------|---------:|
-| Python     |   3.13.2 |
+| Python     |   3.13.3 |
 | SqlAlchemy |   2.0.40 |
 | PyCharm    | 2024.3.5 |
 | VSCode     |   1.99.0 |
